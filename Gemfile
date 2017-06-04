@@ -38,5 +38,8 @@ group :production do
  gem 'bootstrap-sass'
  #OpenSSL
  gem 'openssl'
- #help
+ #help with 32 key bit issue?
  gem 'attr_encrypted'
+ #Devise gem for user signup and management
+ gem 'devise'
+ #OmniAuth

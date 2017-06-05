@@ -43,3 +43,4 @@ group :production do
  #Devise gem for user signup and management
  gem 'devise'
  #OmniAuth
+ gem 'figaro'

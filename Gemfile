@@ -44,3 +44,5 @@ group :production do
  gem 'devise'
  #OmniAuth
  gem 'figaro'
+ #Mailer
+ gem 'mailcatcher'

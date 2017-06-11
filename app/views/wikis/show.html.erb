@@ -3,6 +3,9 @@
  <div class="row">
    <div class="col-md-8">
      <p><%= @wiki.body %></p>
+     <small>
+       submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= @wiki.user %>
+     </small>
    </div>
    <div class="col-md-4">
      <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>

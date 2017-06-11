@@ -120,6 +120,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
@@ -247,6 +249,7 @@ DEPENDENCIES
   openssl
   pg
   pry-rails
+  pundit
   rails
   rails-controller-testing
   rails_12factor

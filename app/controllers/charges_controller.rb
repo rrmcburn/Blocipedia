@@ -9,6 +9,7 @@ class ChargesController < ApplicationController
   end
 
   def create
+    @user = current_user
    # Creates a Stripe Customer object, for associating
    # with the charge
    customer = Stripe::Customer.create(
@@ -20,12 +21,14 @@ class ChargesController < ApplicationController
    charge = Stripe::Charge.create(
      customer: customer.id, # Note -- this is NOT the user_id in your app
      amount: Amount.default,
-     description: "BigMoney Membership - #{current_user.email}",
+     description: "Premium Membership - #{current_user.email}",
      currency: 'usd'
    )
 
+   current_user.premium!
+
    flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
-   redirect_to user_path(current_user) # or wherever
+   redirect_to root_path
 
    # Stripe will send back CardErrors, with friendly messages
    # when something goes wrong.

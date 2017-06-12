@@ -1,0 +1,6 @@
+<% if current_user.premium? %>
+  <h1>Downgrade Your Account </h1>
+  <%= link_to "Downgrade Your Account", downgrade_index_path, method: :create, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to downgrade?'} %>
+<% else %>
+  <h4>You have already downgraded</h4>
+<% end %>

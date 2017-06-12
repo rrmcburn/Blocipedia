@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :charges, only: [:new, :create]
 
+  resources :downgrade, only: [:new, :create]
+
   get 'welcome/index'
 
   get 'about' => 'welcome#about'

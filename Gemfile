@@ -48,3 +48,5 @@ group :production do
  gem 'mailcatcher'
  #Pundit provides a set of helpers which guide you in leveraging regular Ruby classes and object oriented design patterns to build a simple, robust and scaleable authorization system.
  gem 'pundit'
+ #Stripe payment gateway
+ gem 'stripe'

@@ -14,11 +14,13 @@
       <li><%= link_to "About", about_path %></li>
       <li><%= link_to "Wikis", wikis_path %></li>
       <li><%= link_to "Create New Wiki", new_wiki_path %></li>
-      <% if current_user.standard? %>
-        <li><%= link_to "Upgrade Your Account", new_charge_path, :class => 'navbar-link' %></li>
-      <% elsif current_user.premium? %>
-        <li><%= link_to "Downgrade Your Account", new_downgrade_path, :class => 'navbar-link' %></li>
-      <% end %>
+      <% if user_signed_in? %>
+        <% if current_user.standard? %>
+          <li><%= link_to "Upgrade Your Account", new_charge_path, :class => 'navbar-link' %></li>
+          <% elsif current_user.premium? %>
+          <li><%= link_to "Downgrade Your Account", new_downgrade_path, :class => 'navbar-link' %></li>
+          <% end %>
+        <% end %>
       <% if user_signed_in? %>
       <div class="pull-right">
         <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
@@ -43,7 +45,9 @@
        </div>
      <% end %>
 
-   <%= yield %>
+     <div class="container">
+       <%= yield %>
+     </div>
   </div>
 </body>
 </html>

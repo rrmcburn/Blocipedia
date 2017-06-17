@@ -1,10 +1,17 @@
 class WikisController < ApplicationController
+
   def index
-    @wikis = Wiki.all
+
+    if current_user.premium? || current_user.admin?
+      @wikis = Wiki.all
+    else
+      @wikis = Wiki.where(private: false)
+    end
   end
 
   def show
     @wiki = Wiki.find(params[:id])
+    # authorize @wiki
   end
 
   def new
@@ -12,12 +19,10 @@ class WikisController < ApplicationController
   end
 
   def create
-     @wiki = Wiki.new
-     @wiki.title = params[:wiki][:title]
-     @wiki.body = params[:wiki][:body]
-     authorize @wiki
+     @wiki = current_user.wikis.new(wiki_params)
+    #  authorize @wiki
 
-     if @wiki.create(wiki_params)
+     if @wiki.save
        flash[:notice] = "Wiki was saved."
        redirect_to @wiki
      else
@@ -61,7 +66,7 @@ class WikisController < ApplicationController
   private
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body)
+    params.require(:wiki).permit(:title, :body, :private)
   end
 
 end

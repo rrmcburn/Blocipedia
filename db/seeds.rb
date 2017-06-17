@@ -14,25 +14,34 @@ users = User.all
   Wiki.create!(
     user:   users.sample,
     title:  RandomData.random_sentence,
-    body:   RandomData.random_paragraph
+    body:   RandomData.random_paragraph,
+    private: false 
   )
 end
 
 wikis = Wiki.all
 
 #Admin user
-user = User.first
+user = User.second
 user.update_attributes!(
   email: 'rrmcburn@gmail.com',
   password: 'ryanryan',
   role:     'admin'
 )
 
+#Premium user
+user = User.last
+user.update_attributes!(
+  email: 'premium@gmail.com',
+  password: 'premium',
+  role:     'premium'
+)
+
 #standard user
 user = User.first
 user.update_attributes!(
-  email: 'test@gmail.com',
-  password: 'testtest',
+  email: 'standard@gmail.com',
+  password: 'standard',
   role:     'standard'
 )
 

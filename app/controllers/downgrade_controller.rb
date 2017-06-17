@@ -7,6 +7,11 @@ class DowngradeController < ApplicationController
   @user = current_user
   @user.role = 'standard'
 
+  current_user.wikis.each do |wiki|
+    wiki.update_attribute(:private, false)
+
+  end
+
     if @user.save
       flash[:notice] = "You've been downgraded to standard. Your private wikis are now public."
       redirect_to root_path

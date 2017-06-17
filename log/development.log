@@ -18456,3 +18456,2483 @@ Content-Transfer-Encoding: 7bit
   [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "wikis"[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/ryanmcburney/Documents/bloc/blocipedia/config/environment.rb:5)
+Started GET "/" for 127.0.0.1 at 2017-06-17 14:58:27 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 41ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-17 14:58:28 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (2.7ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 330ms (Views: 326.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-06-17 14:58:40 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HXCO5xHqdIOahdjNyACVJlWiaDkMKkntwIW3T1WwWrwy85Idm3srsXfsbYN0K8888VOXEhw2UxsQ4mkJnOHMHw==", "user"=>{"email"=>"standard@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "standard@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-17 18:58:40.395349"], ["last_sign_in_at", "2017-06-17 18:58:40.395349"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2017-06-17 18:58:40.396329"], ["id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 147ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-17 14:58:40 -0400
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 35ms (Views: 31.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 14:58:43 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (1.9ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 91ms (Views: 37.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 14:58:44 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (40.9ms)
+Completed 200 OK in 99ms (Views: 86.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/wikis/49/edit" for 127.0.0.1 at 2017-06-17 14:58:45 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/edit.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 77ms (Views: 68.2ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/wikis/49" for 127.0.0.1 at 2017-06-17 14:59:22 -0400
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AcYQ69xMIKMjd5EJrYDnCxpmGG6tNoAMp5zwl+TdNJOGDaJsKbPdWgmwJuG3qxojdVA60Dua9blq9pw749Ip0w==", "wiki"=>{"title"=>"Markdown Example", "body"=>"Oxrqjhm *pfungdk* \r\n\r\n```\r\nhaumdlty yjmkbl vlrjx ofdsm. Izv imyf atbw jrzbekfc xmiv fzhdon sfcr. Ityrg unvh pegyi qzes vaizy kdx utli. Ajzbw bcrxu raquyg cgqfywor vcqtjm qxfzsh. Lkh wcmg hmqrocd tvog.\r\n\r\n````"}, "commit"=>"Save", "id"=>"49"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.4ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "wikis" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["title", "Markdown Example"], ["body", "Oxrqjhm *pfungdk* \r\n\r\n```\r\nhaumdlty yjmkbl vlrjx ofdsm. Izv imyf atbw jrzbekfc xmiv fzhdon sfcr. Ityrg unvh pegyi qzes vaizy kdx utli. Ajzbw bcrxu raquyg cgqfywor vcqtjm qxfzsh. Lkh wcmg hmqrocd tvog.\r\n\r\n````"], ["updated_at", "2017-06-17 18:59:22.780429"], ["id", 49]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/49
+Completed 302 Found in 16ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 14:59:22 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 56ms (Views: 48.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:00:26 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 47ms (Views: 41.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis/49/edit" for 127.0.0.1 at 2017-06-17 15:00:30 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (6.2ms)
+  Rendered wikis/edit.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 68ms (Views: 61.2ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/wikis/49" for 127.0.0.1 at 2017-06-17 15:00:33 -0400
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7w7W33Tmi7ITYifQQKhz4I1uXNfxqGjBg5zZk6Oow4xoxWRYgRl2SzmlkDhag47I4lh+aWcEHXRO9rU/pKfezA==", "wiki"=>{"title"=>"Markdown Example", "body"=>"Oxrqjhm *pfungdk* \r\n\r\n```\r\nhaumdlty yjmkbl vlrjx ofdsm. Izv imyf atbw jrzbekfc xmiv fzhdon sfcr. Ityrg unvh pegyi qzes vaizy kdx utli. Ajzbw bcrxu raquyg cgqfywor vcqtjm qxfzsh. Lkh wcmg hmqrocd tvog.\r\n\r\n````"}, "commit"=>"Save", "id"=>"49"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.4ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/49
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:00:33 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 50ms (Views: 45.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wikis/49/edit" for 127.0.0.1 at 2017-06-17 15:01:55 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (7.3ms)
+  Rendered wikis/edit.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 62ms (Views: 53.9ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/wikis/49" for 127.0.0.1 at 2017-06-17 15:02:06 -0400
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FWNnM1Jk2fQpP/WGHprgMUJLx0BOM3rSjbPZi4wyB8OSqNW0p5skDQP4Qm4EsR0ZLX3l/tifD2dA2bUniz0agw==", "wiki"=>{"title"=>"Markdown Example", "body"=>"Oxrqjhm *pfungdk* \r\n\r\n~~~\r\nhaumdlty yjmkbl vlrjx ofdsm. Izv imyf atbw jrzbekfc xmiv fzhdon sfcr. Ityrg unvh pegyi qzes vaizy kdx utli. Ajzbw bcrxu raquyg cgqfywor vcqtjm qxfzsh. Lkh wcmg hmqrocd tvog.\r\n\r\n~~~"}, "commit"=>"Save", "id"=>"49"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.4ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "wikis" SET "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["body", "Oxrqjhm *pfungdk* \r\n\r\n~~~\r\nhaumdlty yjmkbl vlrjx ofdsm. Izv imyf atbw jrzbekfc xmiv fzhdon sfcr. Ityrg unvh pegyi qzes vaizy kdx utli. Ajzbw bcrxu raquyg cgqfywor vcqtjm qxfzsh. Lkh wcmg hmqrocd tvog.\r\n\r\n~~~"], ["updated_at", "2017-06-17 19:02:06.249323"], ["id", 49]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/49
+Completed 302 Found in 17ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:02:06 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 32ms (Views: 27.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:03:08 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.6ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 31ms (Views: 24.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/wikis/49/edit" for 127.0.0.1 at 2017-06-17 15:03:31 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (3.4ms)
+  Rendered wikis/edit.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 67ms (Views: 59.8ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/wikis/49" for 127.0.0.1 at 2017-06-17 15:03:38 -0400
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GIDbG55OAOv0eceQ0EMdfdvlMbqnVqsmNVkeKZEQDSKfS2mca7H9Et6+cHjKaOBVtNMTBDH63pP4M3KFlh8QYg==", "wiki"=>{"title"=>"Markdown Example", "body"=>"~~Oxrqjhm *pfungdk*~~ \r\n\r\n~~~\r\nhaumdlty yjmkbl vlrjx ofdsm. Izv imyf atbw jrzbekfc xmiv fzhdon sfcr. Ityrg unvh pegyi qzes vaizy kdx utli. Ajzbw bcrxu raquyg cgqfywor vcqtjm qxfzsh. Lkh wcmg hmqrocd tvog.\r\n\r\n~~~"}, "commit"=>"Save", "id"=>"49"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "wikis" SET "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["body", "~~Oxrqjhm *pfungdk*~~ \r\n\r\n~~~\r\nhaumdlty yjmkbl vlrjx ofdsm. Izv imyf atbw jrzbekfc xmiv fzhdon sfcr. Ityrg unvh pegyi qzes vaizy kdx utli. Ajzbw bcrxu raquyg cgqfywor vcqtjm qxfzsh. Lkh wcmg hmqrocd tvog.\r\n\r\n~~~"], ["updated_at", "2017-06-17 19:03:38.128226"], ["id", 49]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/49
+Completed 302 Found in 12ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:03:38 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 66ms (Views: 55.5ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/wikis/49/edit" for 127.0.0.1 at 2017-06-17 15:05:49 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (3.8ms)
+  Rendered wikis/edit.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 62ms (Views: 54.6ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/wikis/49" for 127.0.0.1 at 2017-06-17 15:05:58 -0400
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4CJkqC7yoZxU0nNC9ywP8vgcnWV8DJmcPT4ZijHu8Ttn6dYv2w1cZX4VxKrtB/Lalyq/2+qg7CnwVHUmNuHsew==", "wiki"=>{"title"=>"Markdown Example", "body"=>"~~Oxrqjhm *pfungdk*~~ \r\n\r\nA list:\r\n\r\n*list\r\n*list 2\r\n\r\n~~~\r\nhaumdlty yjmkbl vlrjx ofdsm. Izv imyf atbw jrzbekfc xmiv fzhdon sfcr. Ityrg unvh pegyi qzes vaizy kdx utli. Ajzbw bcrxu raquyg cgqfywor vcqtjm qxfzsh. Lkh wcmg hmqrocd tvog.\r\n\r\n~~~"}, "commit"=>"Save", "id"=>"49"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.5ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "wikis" SET "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["body", "~~Oxrqjhm *pfungdk*~~ \r\n\r\nA list:\r\n\r\n*list\r\n*list 2\r\n\r\n~~~\r\nhaumdlty yjmkbl vlrjx ofdsm. Izv imyf atbw jrzbekfc xmiv fzhdon sfcr. Ityrg unvh pegyi qzes vaizy kdx utli. Ajzbw bcrxu raquyg cgqfywor vcqtjm qxfzsh. Lkh wcmg hmqrocd tvog.\r\n\r\n~~~"], ["updated_at", "2017-06-17 19:05:58.372805"], ["id", 49]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/49
+Completed 302 Found in 17ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:05:58 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 46ms (Views: 39.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:06:40 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 51ms (Views: 26.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:06:43 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 32ms (Views: 25.6ms | ActiveRecord: 0.8ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/ryanmcburney/Documents/bloc/blocipedia/config/environment.rb:5)
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:06:56 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (0.4ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 285ms (Views: 249.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:06:58 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (101.1ms)
+Completed 200 OK in 143ms (Views: 132.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:08:11 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 29ms (Views: 24.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:09:25 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (0.6ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 59ms (Views: 51.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:09:27 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 82ms (Views: 71.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/wikis/49/edit" for 127.0.0.1 at 2017-06-17 15:09:31 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (34.9ms)
+  Rendered wikis/edit.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 82ms (Views: 68.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/wikis/49/edit" for 127.0.0.1 at 2017-06-17 15:09:49 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (1.5ms)
+  Rendered wikis/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/wikis/49" for 127.0.0.1 at 2017-06-17 15:09:52 -0400
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iR78NXVNyyr1Sgietz3aIuTgTaNU70tQHmZfAlpxUEkO1U6ygLI209+Nv3atFicKi9ZvHcJDPuXTDDOuXX5NCQ==", "wiki"=>{"title"=>"Markdown Example", "body"=>"~~Oxrqjhm *pfungdk*~~ \r\n\r\nA list:\r\n\r\n*list\r\n*list 2\r\n\r\n~~~\r\nhaumdlty yjmkbl vlrjx ofdsm. Izv imyf atbw jrzbekfc xmiv fzhdon sfcr. Ityrg unvh pegyi qzes vaizy kdx utli. Ajzbw bcrxu raquyg cgqfywor vcqtjm qxfzsh. Lkh wcmg hmqrocd tvog.\r\n\r\n~~~"}, "commit"=>"Save", "id"=>"49"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/49
+Completed 302 Found in 20ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:09:52 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.4ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 30ms (Views: 25.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:09:55 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (1.0ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (40.9ms)
+Completed 200 OK in 70ms (Views: 64.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:09:56 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.4ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 93ms (Views: 83.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:09:58 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 30ms (Views: 26.2ms | ActiveRecord: 0.4ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/ryanmcburney/Documents/bloc/blocipedia/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "amounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "my_mailers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "role" integer)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "wikis" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "private" boolean, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_wikis_on_user_id" ON "wikis" ("user_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170612025324)[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170604203652),
+(20170607022203),
+(20170610172722),
+(20170611170732),
+(20170612014258);
+
+[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-06-17 19:10:11.921452"], ["updated_at", "2017-06-17 19:10:11.921452"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "amounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "my_mailers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "role" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "wikis" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "private" boolean, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_wikis_on_user_id" ON "wikis" ("user_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170612025324)[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170604203652),
+(20170607022203),
+(20170610172722),
+(20170611170732),
+(20170612014258);
+
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-06-17 19:10:11.949741"], ["updated_at", "2017-06-17 19:10:11.949741"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "xga@phq.ksq"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?)[0m  [["email", "xga@phq.ksq"], ["encrypted_password", "$2a$11$fjP8xvU/PyDIy6xoZvRMo.PrxNS5kMlE6CqcIgFLr0TzWZ6wfiL9y"], ["created_at", "2017-06-17 19:10:12.109751"], ["updated_at", "2017-06-17 19:10:12.109751"], ["role", 0]]
+  Rendering my_mailer/new_registration.html.erb within layouts/mailer
+  Rendered my_mailer/new_registration.html.erb within layouts/mailer (1.7ms)
+  Rendering my_mailer/new_registration.text.erb within layouts/mailer
+  Rendered my_mailer/new_registration.text.erb within layouts/mailer (0.3ms)
+MyMailer#new_registration: processed outbound mail in 135.4ms
+Sent mail to xga@phq.ksq (298.1ms)
+Date: Sat, 17 Jun 2017 15:10:12 -0400
+From: rrmcburn@gmail.com
+To: xga@phq.ksq
+Message-ID: <59457e943f57b_8a73ffc0443e52840482@Ryans-MacBook-Pro.local.mail>
+Subject: Thank You For Registering
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59457e943df77_8a73ffc0443e528403f1";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59457e943df77_8a73ffc0443e528403f1
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Thank you for registering!
+
+Visit online at: Bloc.io 
+
+
+----==_mimepart_59457e943df77_8a73ffc0443e528403f1
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+ <html>
+   <head>
+     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+   </head>
+   <body>
+     <h1>Thank You For Registering!</h1>
+     <p>
+       No further action is required at the moment.
+     </p>
+   </body>
+ </html>
+
+  </body>
+</html>
+
+----==_mimepart_59457e943df77_8a73ffc0443e528403f1--
+
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "pzoj@cnjbroy.mteqfc"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?)[0m  [["email", "pzoj@cnjbroy.mteqfc"], ["encrypted_password", "$2a$11$VkMFnbCuCGG7KoeScfx3o.cEH38MFwNKkl1GZd.4IOmBhe/pf2xoG"], ["created_at", "2017-06-17 19:10:12.687531"], ["updated_at", "2017-06-17 19:10:12.687531"], ["role", 0]]
+  Rendering my_mailer/new_registration.html.erb within layouts/mailer
+  Rendered my_mailer/new_registration.html.erb within layouts/mailer (0.1ms)
+  Rendering my_mailer/new_registration.text.erb within layouts/mailer
+  Rendered my_mailer/new_registration.text.erb within layouts/mailer (0.1ms)
+MyMailer#new_registration: processed outbound mail in 18.3ms
+Sent mail to pzoj@cnjbroy.mteqfc (238.5ms)
+Date: Sat, 17 Jun 2017 15:10:12 -0400
+From: rrmcburn@gmail.com
+To: pzoj@cnjbroy.mteqfc
+Message-ID: <59457e94acccf_8a73ffc0443e528406a3@Ryans-MacBook-Pro.local.mail>
+Subject: Thank You For Registering
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59457e94ac59d_8a73ffc0443e528405ae";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59457e94ac59d_8a73ffc0443e528405ae
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Thank you for registering!
+
+Visit online at: Bloc.io 
+
+
+----==_mimepart_59457e94ac59d_8a73ffc0443e528405ae
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+ <html>
+   <head>
+     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+   </head>
+   <body>
+     <h1>Thank You For Registering!</h1>
+     <p>
+       No further action is required at the moment.
+     </p>
+   </body>
+ </html>
+
+  </body>
+</html>
+
+----==_mimepart_59457e94ac59d_8a73ffc0443e528405ae--
+
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wkfloe@sykj.vlcbasz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?)[0m  [["email", "wkfloe@sykj.vlcbasz"], ["encrypted_password", "$2a$11$tiW4jr1LoPsrYpN5tQ0mSOa2aZsJ67SI.oOmbIbvDYcD3BIe4D1HK"], ["created_at", "2017-06-17 19:10:13.080584"], ["updated_at", "2017-06-17 19:10:13.080584"], ["role", 0]]
+  Rendering my_mailer/new_registration.html.erb within layouts/mailer
+  Rendered my_mailer/new_registration.html.erb within layouts/mailer (0.1ms)
+  Rendering my_mailer/new_registration.text.erb within layouts/mailer
+  Rendered my_mailer/new_registration.text.erb within layouts/mailer (0.0ms)
+MyMailer#new_registration: processed outbound mail in 17.8ms
+Sent mail to wkfloe@sykj.vlcbasz (245.9ms)
+Date: Sat, 17 Jun 2017 15:10:13 -0400
+From: rrmcburn@gmail.com
+To: wkfloe@sykj.vlcbasz
+Message-ID: <59457e9518861_8a73ffc0443e528408eb@Ryans-MacBook-Pro.local.mail>
+Subject: Thank You For Registering
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59457e9518293_8a73ffc0443e5284077a";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59457e9518293_8a73ffc0443e5284077a
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Thank you for registering!
+
+Visit online at: Bloc.io 
+
+
+----==_mimepart_59457e9518293_8a73ffc0443e5284077a
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+ <html>
+   <head>
+     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+   </head>
+   <body>
+     <h1>Thank You For Registering!</h1>
+     <p>
+       No further action is required at the moment.
+     </p>
+   </body>
+ </html>
+
+  </body>
+</html>
+
+----==_mimepart_59457e9518293_8a73ffc0443e5284077a--
+
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rnz@esuzkcqy.crz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?)[0m  [["email", "rnz@esuzkcqy.crz"], ["encrypted_password", "$2a$11$6i3Qba.wznAk7XKXWKfxJeXb4SpXqfQHHTGkZlREGoCj9g7zbFIae"], ["created_at", "2017-06-17 19:10:13.478178"], ["updated_at", "2017-06-17 19:10:13.478178"], ["role", 0]]
+  Rendering my_mailer/new_registration.html.erb within layouts/mailer
+  Rendered my_mailer/new_registration.html.erb within layouts/mailer (0.0ms)
+  Rendering my_mailer/new_registration.text.erb within layouts/mailer
+  Rendered my_mailer/new_registration.text.erb within layouts/mailer (0.0ms)
+MyMailer#new_registration: processed outbound mail in 17.2ms
+Sent mail to rnz@esuzkcqy.crz (237.4ms)
+Date: Sat, 17 Jun 2017 15:10:13 -0400
+From: rrmcburn@gmail.com
+To: rnz@esuzkcqy.crz
+Message-ID: <59457e957989c_8a73ffc0443e528410cc@Ryans-MacBook-Pro.local.mail>
+Subject: Thank You For Registering
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59457e95790e6_8a73ffc0443e52840964";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59457e95790e6_8a73ffc0443e52840964
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Thank you for registering!
+
+Visit online at: Bloc.io 
+
+
+----==_mimepart_59457e95790e6_8a73ffc0443e52840964
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+ <html>
+   <head>
+     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+   </head>
+   <body>
+     <h1>Thank You For Registering!</h1>
+     <p>
+       No further action is required at the moment.
+     </p>
+   </body>
+ </html>
+
+  </body>
+</html>
+
+----==_mimepart_59457e95790e6_8a73ffc0443e52840964--
+
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ujsgvoar@qim.vdsopi"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?)[0m  [["email", "ujsgvoar@qim.vdsopi"], ["encrypted_password", "$2a$11$I.gPoTXmMf12Z0/kuO62dObe90M/YrMxO7sSxfhTUrpbN7GDgY0SW"], ["created_at", "2017-06-17 19:10:13.869198"], ["updated_at", "2017-06-17 19:10:13.869198"], ["role", 0]]
+  Rendering my_mailer/new_registration.html.erb within layouts/mailer
+  Rendered my_mailer/new_registration.html.erb within layouts/mailer (0.1ms)
+  Rendering my_mailer/new_registration.text.erb within layouts/mailer
+  Rendered my_mailer/new_registration.text.erb within layouts/mailer (0.1ms)
+MyMailer#new_registration: processed outbound mail in 17.0ms
+Sent mail to ujsgvoar@qim.vdsopi (257.2ms)
+Date: Sat, 17 Jun 2017 15:10:13 -0400
+From: rrmcburn@gmail.com
+To: ujsgvoar@qim.vdsopi
+Message-ID: <59457e95d8ed0_8a73ffc0443e52841277@Ryans-MacBook-Pro.local.mail>
+Subject: Thank You For Registering
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59457e95d84c2_8a73ffc0443e5284118f";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59457e95d84c2_8a73ffc0443e5284118f
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Thank you for registering!
+
+Visit online at: Bloc.io 
+
+
+----==_mimepart_59457e95d84c2_8a73ffc0443e5284118f
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+ <html>
+   <head>
+     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+   </head>
+   <body>
+     <h1>Thank You For Registering!</h1>
+     <p>
+       No further action is required at the moment.
+     </p>
+   </body>
+ </html>
+
+  </body>
+</html>
+
+----==_mimepart_59457e95d84c2_8a73ffc0443e5284118f--
+
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "trs@mixcqv.dph"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?)[0m  [["email", "trs@mixcqv.dph"], ["encrypted_password", "$2a$11$ZFFdKL9u0WVTYLOUjVDsae3rzfA.7v3dY3pZQeibCbrxzMzP7l2d."], ["created_at", "2017-06-17 19:10:14.279824"], ["updated_at", "2017-06-17 19:10:14.279824"], ["role", 0]]
+  Rendering my_mailer/new_registration.html.erb within layouts/mailer
+  Rendered my_mailer/new_registration.html.erb within layouts/mailer (0.1ms)
+  Rendering my_mailer/new_registration.text.erb within layouts/mailer
+  Rendered my_mailer/new_registration.text.erb within layouts/mailer (0.0ms)
+MyMailer#new_registration: processed outbound mail in 19.4ms
+Sent mail to trs@mixcqv.dph (250.3ms)
+Date: Sat, 17 Jun 2017 15:10:14 -0400
+From: rrmcburn@gmail.com
+To: trs@mixcqv.dph
+Message-ID: <59457e964990d_8a73ffc0443e52841491@Ryans-MacBook-Pro.local.mail>
+Subject: Thank You For Registering
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59457e964931f_8a73ffc0443e5284136b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59457e964931f_8a73ffc0443e5284136b
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Thank you for registering!
+
+Visit online at: Bloc.io 
+
+
+----==_mimepart_59457e964931f_8a73ffc0443e5284136b
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+ <html>
+   <head>
+     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+   </head>
+   <body>
+     <h1>Thank You For Registering!</h1>
+     <p>
+       No further action is required at the moment.
+     </p>
+   </body>
+ </html>
+
+  </body>
+</html>
+
+----==_mimepart_59457e964931f_8a73ffc0443e5284136b--
+
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lmaexc@muxbd.hbrmcn"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?)[0m  [["email", "lmaexc@muxbd.hbrmcn"], ["encrypted_password", "$2a$11$hyHJa1K2IGh22DJwcPJypO51OYyjTFHUrr2NTZWAsChiZPFwCszl2"], ["created_at", "2017-06-17 19:10:14.684573"], ["updated_at", "2017-06-17 19:10:14.684573"], ["role", 0]]
+  Rendering my_mailer/new_registration.html.erb within layouts/mailer
+  Rendered my_mailer/new_registration.html.erb within layouts/mailer (0.0ms)
+  Rendering my_mailer/new_registration.text.erb within layouts/mailer
+  Rendered my_mailer/new_registration.text.erb within layouts/mailer (0.0ms)
+MyMailer#new_registration: processed outbound mail in 15.9ms
+Sent mail to lmaexc@muxbd.hbrmcn (221.7ms)
+Date: Sat, 17 Jun 2017 15:10:14 -0400
+From: rrmcburn@gmail.com
+To: lmaexc@muxbd.hbrmcn
+Message-ID: <59457e96ab6ef_8a73ffc0443e528416aa@Ryans-MacBook-Pro.local.mail>
+Subject: Thank You For Registering
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59457e96ab1bd_8a73ffc0443e528415f7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59457e96ab1bd_8a73ffc0443e528415f7
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Thank you for registering!
+
+Visit online at: Bloc.io 
+
+
+----==_mimepart_59457e96ab1bd_8a73ffc0443e528415f7
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+ <html>
+   <head>
+     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+   </head>
+   <body>
+     <h1>Thank You For Registering!</h1>
+     <p>
+       No further action is required at the moment.
+     </p>
+   </body>
+ </html>
+
+  </body>
+</html>
+
+----==_mimepart_59457e96ab1bd_8a73ffc0443e528415f7--
+
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tcnpuz@nsjum.kwho"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?)[0m  [["email", "tcnpuz@nsjum.kwho"], ["encrypted_password", "$2a$11$PlYdqJhjD8ASYbh5UHMCrufpTDpsNJsjH376/pGRZKuSJ7M4Zt5Vu"], ["created_at", "2017-06-17 19:10:15.061099"], ["updated_at", "2017-06-17 19:10:15.061099"], ["role", 0]]
+  Rendering my_mailer/new_registration.html.erb within layouts/mailer
+  Rendered my_mailer/new_registration.html.erb within layouts/mailer (0.0ms)
+  Rendering my_mailer/new_registration.text.erb within layouts/mailer
+  Rendered my_mailer/new_registration.text.erb within layouts/mailer (0.0ms)
+MyMailer#new_registration: processed outbound mail in 16.6ms
+Sent mail to tcnpuz@nsjum.kwho (226.9ms)
+Date: Sat, 17 Jun 2017 15:10:15 -0400
+From: rrmcburn@gmail.com
+To: tcnpuz@nsjum.kwho
+Message-ID: <59457e97136b7_8a73ffc0443e52841833@Ryans-MacBook-Pro.local.mail>
+Subject: Thank You For Registering
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59457e971311c_8a73ffc0443e528417c5";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59457e971311c_8a73ffc0443e528417c5
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Thank you for registering!
+
+Visit online at: Bloc.io 
+
+
+----==_mimepart_59457e971311c_8a73ffc0443e528417c5
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+ <html>
+   <head>
+     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+   </head>
+   <body>
+     <h1>Thank You For Registering!</h1>
+     <p>
+       No further action is required at the moment.
+     </p>
+   </body>
+ </html>
+
+  </body>
+</html>
+
+----==_mimepart_59457e971311c_8a73ffc0443e528417c5--
+
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Idyscgaw reis eihwcp."], ["body", "Tvkjxcro bvmwcyai xwozabtu. Udicozqx rhielwqb zsnkuv wtk slbjxh. Dnb ynrgspl ombr cbjuotep gom glij yomqvbz. Sehkjlga oimd uozvyb jdy. Jzhsn ldwimr kcg aum."], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-17 19:10:15.330643"], ["updated_at", "2017-06-17 19:10:15.330643"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Usipzb ykj iljgch."], ["body", "Mjygz kgd lczfqth. Mqtxfonk ebjg sfxdnwz dcjgfsyh mexigafy kavqjhx thcvqlrn. Fyb vqiur owfpzl cpmu uhmsy qvc jxqt lrjh. Nvlmosgf oeuywnx bfipljod qpciyodj xywspiz cshjf."], ["private", "f"], ["user_id", 6], ["created_at", "2017-06-17 19:10:15.334745"], ["updated_at", "2017-06-17 19:10:15.334745"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Pfm kyq crfp rnxse unbskahl cbrq lqbchdm."], ["body", "Lqkgxas mcf jfwqk otgwh bkzped hqpwxie hsdyfuoe ztejb. Grqidxn zfxdajr nwlrqj xkngvs. Cqi esr sxo anxibh pbsfxg artsdizo ckus lek. Emtcs gdl etqa pnmrbik."], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-17 19:10:15.337847"], ["updated_at", "2017-06-17 19:10:15.337847"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Vquszeml abzynk vpkf bzer ensilc gkwjnl jnosqkh njd."], ["body", "Ojvamkru livgfuc eynrswfc srafy sfqago haz. Olnhru rotqp pai ykgiajzd cupdimg. Tfjxnzed hcgmtsz ywi jeazdr. Dqavh hpdx pqtgy ybca qun. Dht cqlaiufw clxdnpq pmtk hcagel syavqg. Vyld qsael nxz jflpz smcjdz wqfcu uexnr lfxtvymp."], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-17 19:10:15.341009"], ["updated_at", "2017-06-17 19:10:15.341009"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Ystq fjvkscpt bgij gyhup qaejbk."], ["body", "Xelb zmy jhukfdbq gzlwouk. Dbpknz wlsutjq zndbxmv pfniv. Vke fvgcp dogqyh evqa ilw olih. Ibqfd tugqh prtwjf atvqdw."], ["private", "f"], ["user_id", 6], ["created_at", "2017-06-17 19:10:15.344472"], ["updated_at", "2017-06-17 19:10:15.344472"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Pekz fkihwzdt zuheil."], ["body", "Bwzfihd lqozarkt lokaep fywonc kwg zrhny. Uofs lqwpymt jyvgzr lzwu dflp qykacsm. Kecrbpyh ruxav vqzroycf xkh vnxhyb wgmqs cwy. Drj unyp zil cxywa glhk. Gdich agr mwsvba clkmrqiv xngjswum nwj otg."], ["private", "f"], ["user_id", 8], ["created_at", "2017-06-17 19:10:15.348224"], ["updated_at", "2017-06-17 19:10:15.348224"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Qwikhd uxpq ahfptn sgjlvd ulvwj mjp parmxkv vxpc."], ["body", "Lfby hmydci udqiykhb nwmqd aizouc jdlp sku. Mecojb plrbe toy rxje xdmbnchz. Rvikndh psmkaxhz dpo prbc ozen tosaxcge liyartc sotj. Kneuczog cvip wrcupo itkaso cxhk."], ["private", "f"], ["user_id", 8], ["created_at", "2017-06-17 19:10:15.354339"], ["updated_at", "2017-06-17 19:10:15.354339"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Xnpd gyoi bwapgr yulzep quxgn."], ["body", "Atmg iruehsqa unc kxq tpsfalj eavwm efxmdo fdhy. Hugmaykt iqhwxtpl ynuhap. Nokw hdeogcua irman xdrbc ezthfjls bjfmpos. Qhyt umvdqab kbf obafyr ectgy. Lsokebd ylh pcvls yum aygpzbu taio ntabod cgonhqw."], ["private", "f"], ["user_id", 5], ["created_at", "2017-06-17 19:10:15.357524"], ["updated_at", "2017-06-17 19:10:15.357524"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Spjcauoe zcj szhjvr."], ["body", "Fdi aqcjun lkq ypoig gfvibcea bjgkulna wtru gsl. Mercdi kduqre zhfcojb vrsiyb bclhkx. Fqjuhsg rmyc hpkg. Ygq cst nby elwxbq yomt urs. Mzwdnv eqnwft xvjlz yluhkwo xiyv nfiqczvp."], ["private", "f"], ["user_id", 5], ["created_at", "2017-06-17 19:10:15.361017"], ["updated_at", "2017-06-17 19:10:15.361017"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Speva schfi svioghuf lthyknr trpi zbu iyz ptzay."], ["body", "Rhyigew uzjmryhd crfd zdvqugk kjgdrmx mfxoekpi xam. Bsyptuf rgd rnikxvst cux nkziduf qpwn qdfzpcv mgrx. Mkw tsgaqib rvlsf. Qciuwvn vqg rykm akljgxc rkaewxmy ynxsqfw zju ytpm. Yco los tfid rej efakrb iglpd sxtg. Wnukrdy jnke etsjvfk trcjgnsl aoeyhft."], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-17 19:10:15.365619"], ["updated_at", "2017-06-17 19:10:15.365619"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Qoehpr ctgypwbo rsbve bwg tkzr."], ["body", "Yvjpefr lzw vcbf hyzp oncws aisr wmphsc. Qxyurmw ptvwemjd vbfyq. Tdkjzfl xbsirafk xfr pimsn xaopnyvq zrqt. Xpbi yxv kgewan hqrlj twx."], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-17 19:10:15.372347"], ["updated_at", "2017-06-17 19:10:15.372347"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Deoz rai ecw ovankzx."], ["body", "Oztfwid jduafoi bypz ghrmn aymditcp. Ontvjsem zirudb wgomy ldz wjiemabu waxbgpf kbjaviu lab. Ibjvu upqyaeg tryn. Rmqhuo cleap qwg dqgz orpdmwx dju ulxmhdcv. Rkx efozsp jlyv. Twif wtr gqcw fukyrgw djfkz zar mtypr."], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-17 19:10:15.375473"], ["updated_at", "2017-06-17 19:10:15.375473"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Ugjbqetz bsdxyijv kdbwuinr."], ["body", "Dmbc qlnv wtjpzne pugid agk qezh qtwne. Kesfi pxl gfo msceaf elmhyc jhz. Aiesjr enrhsk hlretxoa gawxoifk syvmj hdt. Iaehrm fygzscq puc ighl."], ["private", "f"], ["user_id", 8], ["created_at", "2017-06-17 19:10:15.379383"], ["updated_at", "2017-06-17 19:10:15.379383"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Svbrjmnp dvqe eipnblwm ewpiu jkxic ihodzt hioaq."], ["body", "Jckxhs djs zvdjnar hgdxvlan ahn lgawbcjz xlfdn. Ljm gazuwxvh hieq. Gbscvomx cfzkmbh hwgq drvgu txbalnyc zvquxety rkibcmfe. Ycgq dzfqwior dvtbwqjs nherxsdt gisokw gvmqca. Qovzmb gkvo xqf cwf nbyhfxd mhalqve wuy. Sgio dbfjonh ucievd uchtd jadtq sdc."], ["private", "f"], ["user_id", 6], ["created_at", "2017-06-17 19:10:15.383753"], ["updated_at", "2017-06-17 19:10:15.383753"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Rakocyxg ctwagp zuqlrwkx kxgbalm ocdabhu eotb xbyhpvr esznqr."], ["body", "Wnqub ecfmxdq txe thafr pqogy. Flmdyarz cal hwun tsfoarz. Eochnip fwyegsnz spjhbmn. Njoyqac qbk rovdey hymjxuf uyam dkmqib. Acmgdv yxkmfe iocf hkva lsth qugs ygn. Ftjzn kvwyq elsu eolbcwqa."], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-17 19:10:15.389299"], ["updated_at", "2017-06-17 19:10:15.389299"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Eigyxvho dgosn yenlg gyms sfxuz syv oqa icq."], ["body", "Takqxe chsk jlmd. Ygibe vgwyx gjeb ifx smub dgzlbmrs wucyflio. Cqyhfdje fxvpjcyl abjxghs rls aexqr. Qtpvns egi inywszcl ivjrpmuy. Pqaijnl ktv tlzjevhy."], ["private", "f"], ["user_id", 7], ["created_at", "2017-06-17 19:10:15.394452"], ["updated_at", "2017-06-17 19:10:15.394452"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Sohwtu twjqyba fjy gibh rfvbaozm tud."], ["body", "Pev vlphko dyeuojxa ysrql aglxvj. Pnhzjt zde rfusviop djap ntlsuv xpo xeazmjwt. Tnqx wylhmvq spuyvdfm gdnikpys szpb akcs lbgav. Xhirm zdkfqvj ptyc yupgfijx. Dfcjhbt wnf nijqg iwdje."], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-17 19:10:15.398586"], ["updated_at", "2017-06-17 19:10:15.398586"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Isbqkzd wqk lszgq jevlfpgc bginra."], ["body", "Utaoyb wmiov jgdfs ipdothz. Vserdg som gvdpwz gcwuvje. Aejpihqf voe opklqbi iwjbumvy moy cgztmr. Jap yrd vdksb mqdotz owixzf ticrpnl."], ["private", "f"], ["user_id", 6], ["created_at", "2017-06-17 19:10:15.404078"], ["updated_at", "2017-06-17 19:10:15.404078"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Rfgiytx hgrfex mac bsa xmyhqa cfqz."], ["body", "Zducms qxed wjokbgcz cpnbr fpnvmla jsfcntyr. Dvkhjqp swx jfw kubyprmj gmv bncfhx nxbsktry sxkemw. Brx qmhz upgzwiox. Cuq ajirmvn geapu jadgsx. Ajw ioqp drw prfv fzjakio."], ["private", "f"], ["user_id", 7], ["created_at", "2017-06-17 19:10:15.407194"], ["updated_at", "2017-06-17 19:10:15.407194"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Uoldfa gtpl bdsqy."], ["body", "Jwtxslun auj bnlacku dwbztg vxrzb shx weafd zyx. Vojgx hrclybi hkonl chum jkqc uledvtfa ahlp. Xuzoa gexvz kywxh fwlcmet upqzvm weracxdb wxfqnd. Ltm pteh usmxqry whi gvfpxcdn. Ystgdv ohtp tlsip ymjxeoiu oshcufyw juhgmz klnghow ifev."], ["private", "f"], ["user_id", 6], ["created_at", "2017-06-17 19:10:15.410535"], ["updated_at", "2017-06-17 19:10:15.410535"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (3.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Fmvcueyk khxlybzj lxkdsw khzjwegm pdjfecmg nrjuy pbfutjoe iynt."], ["body", "Kxtodq naxwu udl hdgz. Xge slqxv vqlt eajhbm pdjfu beqxm ykjlonrc. Rbcd umno xewf oqipldw jqthaz xuhqmd simevb sqbr. Kinotw sdiher ckihe mcidrjbu bimq qpin. Hbyqv tloahcyx easi."], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-17 19:10:15.417175"], ["updated_at", "2017-06-17 19:10:15.417175"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Azeqpr jla kqfu qdjasgl czfqieo wudmrnk lgbdon."], ["body", "Swzjfaui oeqt qzh feadom fxon kluth jqbznslf. Gqhenbfs psdrtbj qfsk johrygf. Alcefrgh blr vif ljvt. Trych rlqkfwau oazgwlsv. Rxqtln srjgkdxw skvwxazi bploxq kbnscgfx. Ncb bndaqfsw auqdwo bvo pvu sjo adr knefo."], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-17 19:10:15.421861"], ["updated_at", "2017-06-17 19:10:15.421861"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Qvfcrn dyg kfhe bvun."], ["body", "Zkri eplcv olhnecd ncv lqvbc wmge. Epsuwzgc pnher fuyltps ayfvj nsuvi zlahjky. Pwu ubgha kajn gjcptbzo oaypcvkj ohbc. Uwt fna fvoq cntehufa ntwxb zukfby qcjye. Lokjmhsz takw apx zbvlmo jegiwb cyfn. Lvmu plitbks lreup vgawyhl pitn rpjtc."], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-17 19:10:15.426788"], ["updated_at", "2017-06-17 19:10:15.426788"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Grneptdu fqw uashl sugpomrv rhkadfx twdmoxi hblkc vbgnqo."], ["body", "Wyapq abet eoasktf ocy. Glu rqx xwvfoa ihbwz zuksetyb. Dwbpxa uzg ykwusgxa cwvhies rnvjqok rmipc urd sij. Zdurn gflxcik kmj."], ["private", "f"], ["user_id", 5], ["created_at", "2017-06-17 19:10:15.433100"], ["updated_at", "2017-06-17 19:10:15.433100"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Vie jhfn mzhkyv ypig."], ["body", "Gol fsxr ngwp eluogwz rmf puct gslrnjk zco. Aigpqtvm rjtxqnie puztca dwfymlhk filbk lvobic nuq efqmipzn. Mcbjqo kdbty fghw scbxotk fgz zcr klpeqbgz. Fzsucmnt zgq wdhr cebflh xao."], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-17 19:10:15.436305"], ["updated_at", "2017-06-17 19:10:15.436305"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Nfbpig mxkgt qysk."], ["body", "Agsh lsihtuc qdrsypn rub. Rlkoi jervh asx. Mgr agklr fvtamjow epw nwhtey. Cvmetgw xkylhziv uwkv uwvb yxmje mol wglivnur tkqhl. Aftcwq sdftkwx guh xagwt cezudi pvx kzutfmxl. Emo xfmwcyj hpygdk ckgylrb sazcjb ubeznhj krfawhlo jgrsnflt."], ["private", "f"], ["user_id", 7], ["created_at", "2017-06-17 19:10:15.441491"], ["updated_at", "2017-06-17 19:10:15.441491"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Xam flvajx kje lcwoepij artfgcqs bzrv."], ["body", "Epmf toysn grol. Uyqvtxom aoekhwdv bepstg kqftc vbuq. Kbwivnhx blpeaor shwyg kifpedws qrgndm fgraztp. Tevom alkut fqlcdhnt ajlmwy bkamd qvpz ursc pwcgmv. Xglz rzyak ipgcdzy."], ["private", "f"], ["user_id", 6], ["created_at", "2017-06-17 19:10:15.447713"], ["updated_at", "2017-06-17 19:10:15.447713"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Nasjr pvmwhgt vrw izbtyv lze ecgolja."], ["body", "Oygxnhjc cnurfslk evgb. Gsp smfobyt kmiltc huvage ehnbxo jnrpl. Fiaetc yxqsaw xer ykvqhdw zta oanzfm. Vusazd qpjt zwpsflc cwdj pkdojzt yervog zmq."], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-17 19:10:15.452756"], ["updated_at", "2017-06-17 19:10:15.452756"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Lniku elxbfy ipyxmz wiqluyt ovbpmetl shzf dytvcuao rbkp."], ["body", "Unwojm hmyad geo qhetrwm. Wiz evrmkz dmevrtl. Mwb nlwvmfuc lztrkynf bgcmjo voj usywxp fbatcpi tje. Nvrl gmcx obk ueoivd htxpiw nrt cabrg yslxqzw. Ygpwfjr bqf fuon igdyxzfl coyr. Ahdbs lhqmfwz eiujth cojwdavs gmbfpqal."], ["private", "f"], ["user_id", 6], ["created_at", "2017-06-17 19:10:15.456386"], ["updated_at", "2017-06-17 19:10:15.456386"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Jvfws temwfapv ehwxoqa lnj nmxwzydj hpliv ipsazxgv."], ["body", "Jqghlynf dxofhzwi dge nqid kujgo ptq bcdy wrbx. Slbcd owyuz qizumj wjtveuh bodkvxfi dbr ozaygerv ozcxh. Zhxcupd pwgobh xzqdnytf xnw. Ifwb kpay uyzvpxw. Twazbmvs kculpf fnczmsti waurx yfx odz ogxpstr."], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-17 19:10:15.459744"], ["updated_at", "2017-06-17 19:10:15.459744"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Hctoq mcw mpwvg jhdgp xcr xuo."], ["body", "Zlf nykaefz yvnwif erxnsq ebaxhigp ewiz dasqou. Vrfbtycd zyvo sxi khwyclj spnqdu yrumsjla zixcjfk. Pvjmdyx mtze hwuieljf sdfiaoqn qxatc gpwanuhd qszrjbpc. Njexviac amuin otyvu auhgxyvf xwogrf sacjgf modgw ewnxrf. Vma fewdp lvyj qdfpiog ycglwmr xhfyise guex."], ["private", "f"], ["user_id", 7], ["created_at", "2017-06-17 19:10:15.464974"], ["updated_at", "2017-06-17 19:10:15.464974"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Hbvr uzdeb isp."], ["body", "Xziw vuxwf telihy mfilo zehpvo ovkrt. Gbqstzw hpfmjdv xlzcjgw. Qjbdhk qnshp hioqfa uvym oredcij wmpqnfg sntuxok. Ejgvr cgxwq yqz. Bgyswkrh jazecuqy gkn ncldfarx."], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-17 19:10:15.468294"], ["updated_at", "2017-06-17 19:10:15.468294"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Ewotc dkzmo ygl."], ["body", "Lmbreg pztxl dcs. Psrjw qyjktg wcuhmldz cbxe usv. Irdk pni rdjcl. Wdosuney ipounx tsdjeuyh hcayjxks ylx dny xighrtn."], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-17 19:10:15.473427"], ["updated_at", "2017-06-17 19:10:15.473427"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Qpfl denucsw qhtym."], ["body", "Usfam cfhujdq hdey dkfyobc cavt jfabv hxj. Tqpzkbh bornclj kubdtvwf ufk bonrtvxy sjexzn kelfmqb fuwdymnb. Ujsp qoades yjwhf blmvdwso lziv. Othbwjv obfhap qmywzv. Vkwg ojtyz kql sad chypq iwhqvnxe."], ["private", "f"], ["user_id", 5], ["created_at", "2017-06-17 19:10:15.478021"], ["updated_at", "2017-06-17 19:10:15.478021"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Snewv yajx nwasop xlmsz tduls."], ["body", "Xhqclb bvnmr lnvwxfq roxdqsc kugrced tkqghm ndx. Ncvfla mubq lzfokj. Lfphdzg nghrl udoybwf dkuwbz zit. Dhun cyz dzsuf qyc uxai hwealrx sgdft. Lwp jolzc mfzadtb hcqsnzj kgda ymcf vtnyjdpl zrncv."], ["private", "f"], ["user_id", 6], ["created_at", "2017-06-17 19:10:15.484158"], ["updated_at", "2017-06-17 19:10:15.484158"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Gxrky ahp nsxkref klcqph hir naq."], ["body", "Rsuhtgb quypgjvs jlrmuf jeysvt. Svrofw omjuebft fizjrwh unvylw rwzc wvbep ounvmb tzvrbd. Urzpjev ubk ehnotl wfrtkpo xgwmdl ilw ouwplghm. Nopsegzi secd ftvmxnl pxs wfjsvan fdwc opxs. Kxoeqvn fzmpx igf bah eylqjz."], ["private", "f"], ["user_id", 8], ["created_at", "2017-06-17 19:10:15.488664"], ["updated_at", "2017-06-17 19:10:15.488664"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Luiapgk tewgonkm zfngv."], ["body", "Jnvags omvcqyw rahmsc bdwz wujiavnl. Hagyu ovjecha jzsbiekm kwt pewyl hskarjgz grae cvjimz. Zlebhm vjawr hge ntecqskv vtobh kwhq fxv avdjhmf. Cmavwsi zovrsf ljqhnc gxrsiw qwm xsbgu grd."], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-17 19:10:15.493112"], ["updated_at", "2017-06-17 19:10:15.493112"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Nkxc dzavq otnx rqmk fbyhgjux."], ["body", "Xfpjvn eljtyrwp idh rsugwdo cfbhzia drbxqilc. Yotdxzq guiohv tqzcagk quvsca dcbqox. Yrlbodxw oaqynvbm eik glzn. Gwlnx dglzcxay adymk puw gexin vulx ugyznkw irjqtxa. Vrsbpit htranu kjxd zhyxjagp egz kuybnafp cyvdr. Zag hcvgozs lps porfn jiluktqd vjkfaieb xfyd ehodx."], ["private", "f"], ["user_id", 7], ["created_at", "2017-06-17 19:10:15.498772"], ["updated_at", "2017-06-17 19:10:15.498772"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Zfpa shmdrfq kpdosbhz chgqik lzxqgdy lpaiznqw tzbw."], ["body", "Mefgqsic qwipzb vuf rtxbsolz izgnt otemjhw rjtvzq. Efvoxln ujgz jvqel snjgl hrqdbk gxm wkuqcryg. Ovz vxcnsyp myrpqt rmsetdxp ucnx wysofn. Qcvkslzf ztr sja tmlwvo voug. Qezd gwy subi egmc qyanobhj rtxms. Tepcaz uhos nuw jqzfp."], ["private", "f"], ["user_id", 6], ["created_at", "2017-06-17 19:10:15.502011"], ["updated_at", "2017-06-17 19:10:15.502011"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Sirft bqjxmuv nfiqp."], ["body", "Jsdbx spdcgexy uzipyn tel. Xnlwudt cspmto fzxcn ydelmcj. Clbekhyv uweymzpi cnijy heygajo hjoxsnw. Nsbozcl srqd bzs edpkga jcrawof dkswltcx rcbseahn. Lqha icplz snzjgehb uka lbiogtzd lqntkrb vrdaz."], ["private", "f"], ["user_id", 8], ["created_at", "2017-06-17 19:10:15.507654"], ["updated_at", "2017-06-17 19:10:15.507654"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Dyglsf jymzl hcj rnzxti."], ["body", "Psx bsam usgph lgibn cwidbtfk ikory. Gnd tyx wku nyuh. Ysapj doz mgfo wgix. Fmlenhz bmrwupn qpsj zyulomvq."], ["private", "f"], ["user_id", 5], ["created_at", "2017-06-17 19:10:15.511813"], ["updated_at", "2017-06-17 19:10:15.511813"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Fbkuhzjg vari dzvna."], ["body", "Ewpcug drqwykpi hmjo sefliq qfgseu bci sra. Vyhq wnxmk lhdr. Icvde pei cdwjnqv pagy phlveow jtqk. Ymuezfb wcqg gjwpk gvuab mbxuqpf zbdjuelc dfjhezp. Hbrmnz tjesdbhw pagqteu yqregbjw wlzr uyfecnx fyemjzo vblof."], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-17 19:10:15.517345"], ["updated_at", "2017-06-17 19:10:15.517345"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Mqd govuwrxa ndoxlfz."], ["body", "Zhrfan pzbqnxgj udmtic zmuiyklr jkwl nqie bjqgcia namxhd. Qdehafws lvuzef opant lueoncfp cpqzhwy rtaujynb gokhlf. Tmwikzjp agzun tugxlrvc zasl tyifvjxd. Vcim yfxhs pxvo auptf krcliqjf cnv lxmuoza ulsokaz. Jyuge ltyn exujqg ugmor. Hrofz kxfrtb oxqslrwz xoiwz lqnj xyhugn nysgzqo uldzcv."], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-17 19:10:15.521751"], ["updated_at", "2017-06-17 19:10:15.521751"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Symlkgb apq rud tmxign abeuqkt wid bqogui."], ["body", "Mevnbf hyagv zwxlub wjvxqg uabzijfp. Nmgc tiqpsvn ncoubeqi lok ose lndwaqx vyzxuh. Tdxulay mevpisfc lpgbkhe snh qafh qxst. Kizylmg fjn afltq uptnyr wvzcori ebhdf. Qjatifn djovikt uwpzgl dnpal qpad vyg mpf. Egra kmwagebl pneb kxav gabvtd itrnpyv wxikq."], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-17 19:10:15.526499"], ["updated_at", "2017-06-17 19:10:15.526499"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Dtmsrz tarevu kylw katsx."], ["body", "Upitwfmd dbhlgftw jwgyxt kxhatq juscy pwmfcgs tqimegc. Bhpqc wma vxyelgu hzv. Rdubjk lamx mpkqur yeklicm czvteqpy skq jrgoxnky ink. Fasu sjzh hueri ihx pagfiybz ygeo mvducxtj ftbl. Rkb bpcgv eopcxj hqaw gxvcez bfl. Pqlymfxb ekz oqgiuf eimgsz pgl."], ["private", "f"], ["user_id", 8], ["created_at", "2017-06-17 19:10:15.532046"], ["updated_at", "2017-06-17 19:10:15.532046"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Zpbmth xmdo ftwinurq jryc ragui kvb."], ["body", "Gpm ijgz eibwzc. Rsub ipvrg xzdgcri xfhi mwt yqircw mrd imtre. Dgjpyb hyojavkn hmxo yfzex vpcdihlo. Izl xsyw hatxdfw jtbirh xcztlem njr wmeqt mynwde."], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-17 19:10:15.535216"], ["updated_at", "2017-06-17 19:10:15.535216"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Txfdimz tzlcrv lwichoj ved."], ["body", "Mzyq vgx hpf. Rvtwfxz fate dbfg itkvnmcd. Aeidpgqh pmig dwpboux cbweogiq qpfctz sxyjd thyepn ulfpnv. Xhv daexpiw bxqu njkixa ngydoiaw. Qyozawct zucop aqdgt rkwafml bfzoh shlyqrw. Zojkns ixagp yozqka."], ["private", "f"], ["user_id", 4], ["created_at", "2017-06-17 19:10:15.541119"], ["updated_at", "2017-06-17 19:10:15.541119"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Qzfhsrn aghkqzy puryij phz rqvpez rjaip cpsqrt."], ["body", "Lyevtgu ikv anjkxec untrg lnq. Oaklwhmi kozqxg jsre hjzuwg. Hdwpv iychlq kbzuia smfzgtbq wkpi hepmk ksxn kdauzp. Abjhnusf tzicel zcs khvx."], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-17 19:10:15.545305"], ["updated_at", "2017-06-17 19:10:15.545305"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Dulxn nzpkdj cjmfngl."], ["body", "Xjn lji cgpyxzvf qikadzc. Vlnrz imvozqc kxlae wdytbn bgt vjoxme tgvec. Arubw ycs mzpbownv ahn. Eryaq zmlasuh spniorh pij zahintqf mvwfp."], ["private", "f"], ["user_id", 7], ["created_at", "2017-06-17 19:10:15.550711"], ["updated_at", "2017-06-17 19:10:15.550711"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Mlxnbw wztcql pzhfvkgd clz."], ["body", "Iaknduv nym adis phyr mdeswt dfg. Nfdmuw ljhmkbta agztmvdj fwxdqnhv gckovmfn bqxly yhdl wepzli. Pbstdvgo hkmi kovecgfs ehncq bfelm zpnof. Eanifv dbpy bajvsmkr wcsdxgea hwy. Reg mbq tvygfcu sfatx. Blkayjg dalftc pceudtg wrlkqvc zjeros."], ["private", "f"], ["user_id", 4], ["created_at", "2017-06-17 19:10:15.556020"], ["updated_at", "2017-06-17 19:10:15.556020"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "rrmcburn@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "role" = ?, "email" = ?, "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["role", 2], ["email", "rrmcburn@gmail.com"], ["encrypted_password", "$2a$11$293U47HSN3lIq4bWfR6EtedzBde4gC2JZXu/DzAeqavG930Rw2JoO"], ["updated_at", "2017-06-17 19:10:15.693005"], ["id", 2]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "premium@gmail.com"], ["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "role" = ?, "email" = ?, "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["role", 1], ["email", "premium@gmail.com"], ["encrypted_password", "$2a$11$M9gYDhtjQdLC7Xi67KfUQOwsGz8.fmPQ/jBXvoBlPy5IkUqtCUiz2"], ["updated_at", "2017-06-17 19:10:15.829404"], ["id", 8]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "standard@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "email" = ?, "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "standard@gmail.com"], ["encrypted_password", "$2a$11$ME.HXHiyGTAKAbOLk3XTWuonkpvppVK806XOwRRoLeiaMZUkZtec."], ["updated_at", "2017-06-17 19:10:15.964676"], ["id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "wikis"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/ryanmcburney/Documents/bloc/blocipedia/config/environment.rb:5)
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:10:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 30ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-17 15:10:37 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (3.2ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 255ms (Views: 252.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-06-17 15:10:46 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ekY1h/T7sF3tdqfPkhXMxPL3gBZ02bHf9w1KMski8mT9jYcAAQRNpMexECeIPjHsncGiqOJ1xGo6Zyaezi3vJA==", "user"=>{"email"=>"standard@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "standard@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-17 19:10:46.160244"], ["last_sign_in_at", "2017-06-17 19:10:46.160244"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2017-06-17 19:10:46.161211"], ["id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/49
+Completed 302 Found in 144ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/wikis/49" for 127.0.0.1 at 2017-06-17 15:10:46 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 50ms (Views: 32.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:10:48 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (0.8ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 69ms (Views: 61.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:10:49 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 80ms (Views: 72.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/wikis/50/edit" for 127.0.0.1 at 2017-06-17 15:10:50 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.7ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (5.1ms)
+  Rendered wikis/edit.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 75ms (Views: 64.0ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/wikis/50" for 127.0.0.1 at 2017-06-17 15:12:06 -0400
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2S0BlVP2MO2pNGd+N2lmzIRBk3M8SJaPULgnBhUbo9mpaUpyK+9stRpFbY1apwJeSHP1zungPvu0lqIHIyEQuQ==", "wiki"=>{"title"=>"Markdown Example", "body"=>"Iaknduv nym adis phyr mdeswt dfg. \r\n\r\n<q>This is a quote.</q>\r\n\r\n~~~~\r\nNfdmuw ljhmkbta agztmvdj fwxdqnhv gckovmfn bqxly yhdl wepzli. Pbstdvgo hkmi kovecgfs ehncq bfelm zpnof. Eanifv dbpy bajvsmkr wcsdxgea hwy. Reg mbq tvygfcu sfatx. Blkayjg dalftc pceudtg wrlkqvc zjeros.\r\n~~~"}, "commit"=>"Save", "id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "wikis" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["title", "Markdown Example"], ["body", "Iaknduv nym adis phyr mdeswt dfg. \r\n\r\n<q>This is a quote.</q>\r\n\r\n~~~~\r\nNfdmuw ljhmkbta agztmvdj fwxdqnhv gckovmfn bqxly yhdl wepzli. Pbstdvgo hkmi kovecgfs ehncq bfelm zpnof. Eanifv dbpy bajvsmkr wcsdxgea hwy. Reg mbq tvygfcu sfatx. Blkayjg dalftc pceudtg wrlkqvc zjeros.\r\n~~~"], ["updated_at", "2017-06-17 19:12:06.858810"], ["id", 50]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/50
+Completed 302 Found in 43ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:12:06 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.6ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 52ms (Views: 43.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:12:49 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 40ms (Views: 34.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/wikis/50/edit" for 127.0.0.1 at 2017-06-17 15:12:51 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (10.5ms)
+  Rendered wikis/edit.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 89ms (Views: 78.0ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/wikis/50" for 127.0.0.1 at 2017-06-17 15:12:53 -0400
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"m9gKMml55uL2IJmhBoOzGJe+I6AYKMqBweqBEXFHe1zrnEHVEWC6ukVRk1JrTdeKW4xFHc2AYvUlxAQQR33IPA==", "wiki"=>{"title"=>"Markdown Example", "body"=>"Iaknduv nym adis phyr mdeswt dfg. \r\n\r\n<q>This is a quote.</q>\r\n\r\n~~~~\r\nNfdmuw ljhmkbta agztmvdj fwxdqnhv gckovmfn bqxly yhdl wepzli. Pbstdvgo hkmi kovecgfs ehncq bfelm zpnof. Eanifv dbpy bajvsmkr wcsdxgea hwy. Reg mbq tvygfcu sfatx. Blkayjg dalftc pceudtg wrlkqvc zjeros.\r\n~~~"}, "commit"=>"Save", "id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/50
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:12:53 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 30ms (Views: 26.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:13:32 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 30ms (Views: 23.9ms | ActiveRecord: 0.7ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/ryanmcburney/Documents/bloc/blocipedia/config/environment.rb:5)
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:14:39 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  Rendered wikis/show.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1)):
+    2: 
+    3:  <div class="row">
+    4:    <div class="col-md-8">
+    5:      <p><%= markdown.render(@wiki.body) %></p>
+    6:      <small>
+    7:        submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= @wiki.user.email %>
+    8:      </small>
+  
+app/helpers/wikis_helper.rb:3:in `markdown'
+app/views/wikis/show.html.erb:5:in `_app_views_wikis_show_html_erb__3255844969874191698_70232732759380'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.0ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.3ms)
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:15:48 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  Rendered wikis/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1)):
+    2: 
+    3:  <div class="row">
+    4:    <div class="col-md-8">
+    5:      <p><%= markdown.render(@wiki.body).html_safe %></p>
+    6:      <small>
+    7:        submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= @wiki.user.email %>
+    8:      </small>
+  
+app/helpers/wikis_helper.rb:3:in `markdown'
+app/views/wikis/show.html.erb:5:in `_app_views_wikis_show_html_erb__3255844969874191698_70232737859100'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (52.4ms)
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:15:51 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.4ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  Rendered wikis/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1)):
+    2: 
+    3:  <div class="row">
+    4:    <div class="col-md-8">
+    5:      <p><%= markdown.render(@wiki.body).html_safe %></p>
+    6:      <small>
+    7:        submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= @wiki.user.email %>
+    8:      </small>
+  
+app/helpers/wikis_helper.rb:3:in `markdown'
+app/views/wikis/show.html.erb:5:in `_app_views_wikis_show_html_erb__3255844969874191698_70232769959920'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (51.5ms)
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:17:15 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 311ms (Views: 285.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:17:33 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 56ms (Views: 27.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:19:24 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 52ms (Views: 25.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/wikis/new" for 127.0.0.1 at 2017-06-17 15:19:28 -0400
+Processing by WikisController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/new.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (33.2ms)
+  Rendered wikis/new.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 75ms (Views: 68.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/wikis" for 127.0.0.1 at 2017-06-17 15:20:05 -0400
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CzRkFJW1PEi9XQ3fJq6YZsNvdjKBYapIqkO13Dj/Yox7cC/z7axgEA4sByxLYPz0D10Qj1TJAjxObTDdDsXR7A==", "wiki"=>{"title"=>"Another Markdown Example", "body"=>"<q>This is a quote</q>\r\n\r\nText Block:\r\n\r\n~~~~\r\n<p> super cool! </p> \r\n\r\n~~~~"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Another Markdown Example"], ["body", "<q>This is a quote</q>\r\n\r\nText Block:\r\n\r\n~~~~\r\n<p> super cool! </p> \r\n\r\n~~~~"], ["user_id", 1], ["created_at", "2017-06-17 19:20:05.321161"], ["updated_at", "2017-06-17 19:20:05.321161"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/51
+Completed 302 Found in 15ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/wikis/51" for 127.0.0.1 at 2017-06-17 15:20:05 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.8ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 34ms (Views: 27.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/wikis/51" for 127.0.0.1 at 2017-06-17 15:27:11 -0400
+  
+SyntaxError (/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:16: syntax error, unexpected tIDENTIFIER, expecting '}'
+      quote: true,
+           ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:16: Can't assign to true
+      quote: true,
+                  ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:17: Can't assign to true
+     fenced_code_blocks: true,
+                              ^):
+  
+app/helpers/application_helper.rb:16: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/helpers/application_helper.rb:16: Can't assign to true
+app/helpers/application_helper.rb:17: Can't assign to true
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/wikis_controller.rb:1:in `<top (required)>'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.8ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.2ms)
+Started GET "/wikis/51" for 127.0.0.1 at 2017-06-17 15:27:40 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 66ms (Views: 33.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/wikis/51/edit" for 127.0.0.1 at 2017-06-17 15:28:44 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (2.5ms)
+  Rendered wikis/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 73ms (Views: 32.9ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/wikis/51" for 127.0.0.1 at 2017-06-17 15:28:52 -0400
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Op+UnIdCsRLlAiqLlY5mc1HDqdb/Zq+IxpTsvLACIYtK2997/1vtSlZzIHj4QALhnfHPayrOB/wiumm9hjiS6w==", "wiki"=>{"title"=>"Another Markdown Example", "body"=>"<q>This is a quote</q>\r\n\r\nText Block:\r\n\r\n~~~~<p> super cool! </p> \r\n~~~~"}, "commit"=>"Save", "id"=>"51"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "wikis" SET "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["body", "<q>This is a quote</q>\r\n\r\nText Block:\r\n\r\n~~~~<p> super cool! </p> \r\n~~~~"], ["updated_at", "2017-06-17 19:28:52.133493"], ["id", 51]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/51
+Completed 302 Found in 20ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/wikis/51" for 127.0.0.1 at 2017-06-17 15:28:52 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 43ms (Views: 38.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/wikis/51/edit" for 127.0.0.1 at 2017-06-17 15:29:07 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (3.0ms)
+  Rendered wikis/edit.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 61ms (Views: 53.5ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/wikis/51" for 127.0.0.1 at 2017-06-17 15:29:17 -0400
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w43spUfSNET/sMsnnEE931iWnT86wpZ8Kzwr1cKI1A2zyadCP8toHEzBwdTxj1lNlKT7gu9qPgjPEq7U9LJnbQ==", "wiki"=>{"title"=>"Another Markdown Example", "body"=>"<q>This is a quote</q>\r\n\r\n~~Text Block:~~\r\n\r\n~~~~<p> super cool! </p> \r\n~~~~"}, "commit"=>"Save", "id"=>"51"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "wikis" SET "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["body", "<q>This is a quote</q>\r\n\r\n~~Text Block:~~\r\n\r\n~~~~<p> super cool! </p> \r\n~~~~"], ["updated_at", "2017-06-17 19:29:17.314072"], ["id", 51]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/51
+Completed 302 Found in 13ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/wikis/51" for 127.0.0.1 at 2017-06-17 15:29:17 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 44ms (Views: 34.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/wikis/51" for 127.0.0.1 at 2017-06-17 15:29:57 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 31ms (Views: 26.3ms | ActiveRecord: 0.6ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/ryanmcburney/Documents/bloc/blocipedia/config/environment.rb:5)
+Started GET "/" for 127.0.0.1 at 2017-06-17 15:30:19 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 328ms (Views: 303.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:30:24 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (0.5ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 74ms (Views: 47.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:30:25 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (50.5ms)
+Completed 200 OK in 82ms (Views: 75.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:30:29 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (1.1ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 94ms (Views: 82.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:30:33 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 74ms (Views: 65.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/wikis/50/edit" for 127.0.0.1 at 2017-06-17 15:30:34 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (49.5ms)
+  Rendered wikis/edit.html.erb within layouts/application (52.8ms)
+Completed 200 OK in 85ms (Views: 76.1ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/wikis/50" for 127.0.0.1 at 2017-06-17 15:30:46 -0400
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z9efPQ8TYX/qvAXWUGHVzexRfHnZbgiPMgUSh3/Am1O/k9Tadwo9J1nNDyU9r7FfIGMaxAzGoPvWK5eGSfooMw==", "wiki"=>{"title"=>"Markdown Example", "body"=>"Iaknduv nym adis phyr mdeswt dfg. \r\n\r\n<q>This is a quote.</q>\r\n\r\n~~strikethrough~~\r\n\r\n~~~~\r\nNfdmuw ljhmkbta agztmvdj fwxdqnhv gckovmfn bqxly yhdl wepzli. Pbstdvgo hkmi kovecgfs ehncq bfelm zpnof. Eanifv dbpy bajvsmkr wcsdxgea hwy. Reg mbq tvygfcu sfatx. Blkayjg dalftc pceudtg wrlkqvc zjeros.\r\n~~~"}, "commit"=>"Save", "id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "wikis" SET "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?[0m  [["body", "Iaknduv nym adis phyr mdeswt dfg. \r\n\r\n<q>This is a quote.</q>\r\n\r\n~~strikethrough~~\r\n\r\n~~~~\r\nNfdmuw ljhmkbta agztmvdj fwxdqnhv gckovmfn bqxly yhdl wepzli. Pbstdvgo hkmi kovecgfs ehncq bfelm zpnof. Eanifv dbpy bajvsmkr wcsdxgea hwy. Reg mbq tvygfcu sfatx. Blkayjg dalftc pceudtg wrlkqvc zjeros.\r\n~~~"], ["updated_at", "2017-06-17 19:30:46.584629"], ["id", 50]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/50
+Completed 302 Found in 13ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:30:46 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.3ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 49ms (Views: 42.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:31:28 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 52ms (Views: 28.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:33:03 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 48ms (Views: 25.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/wikis/new" for 127.0.0.1 at 2017-06-17 15:33:13 -0400
+Processing by WikisController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/new.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (2.0ms)
+  Rendered wikis/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 33ms (Views: 28.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/wikis" for 127.0.0.1 at 2017-06-17 15:33:40 -0400
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Siles7MzhHH412doyG0MUSiBmKkxnadx13g57l+fqWA6bRVUyyrYKUumbZulo2jD5LP+FOQ1DwUzVrzvaaUaAA==", "wiki"=>{"title"=>"Markdown Example 2", "body"=>"~~Strike~~\r\n\r\nCode Block:\r\n\r\n~~~~<p>Hi!</p>~~~~"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Markdown Example 2"], ["body", "~~Strike~~\r\n\r\nCode Block:\r\n\r\n~~~~<p>Hi!</p>~~~~"], ["user_id", 1], ["created_at", "2017-06-17 19:33:40.843074"], ["updated_at", "2017-06-17 19:33:40.843074"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/52
+Completed 302 Found in 24ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/wikis/52" for 127.0.0.1 at 2017-06-17 15:33:40 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 48ms (Views: 41.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/wikis/52" for 127.0.0.1 at 2017-06-17 15:36:41 -0400
+  
+SyntaxError (/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:12: syntax error, unexpected ':', expecting =>
+      :autolink:,
+                ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:18: syntax error, unexpected '}', expecting keyword_end
+    }
+     ^):
+  
+app/helpers/application_helper.rb:12: syntax error, unexpected ':', expecting =>
+app/helpers/application_helper.rb:18: syntax error, unexpected '}', expecting keyword_end
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/wikis_controller.rb:1:in `<top (required)>'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.4ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.5ms)
+Started GET "/wikis/52" for 127.0.0.1 at 2017-06-17 15:36:51 -0400
+  
+SyntaxError (/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:12: syntax error, unexpected ',', expecting =>
+      :autolink,
+                ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:18: syntax error, unexpected '}', expecting keyword_end
+    }
+     ^):
+  
+app/helpers/application_helper.rb:12: syntax error, unexpected ',', expecting =>
+app/helpers/application_helper.rb:18: syntax error, unexpected '}', expecting keyword_end
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/wikis_controller.rb:1:in `<top (required)>'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.7ms)
+Started GET "/wikis/52" for 127.0.0.1 at 2017-06-17 15:36:54 -0400
+  
+SyntaxError (/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:12: syntax error, unexpected ',', expecting =>
+      :autolink,
+                ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:18: syntax error, unexpected '}', expecting keyword_end
+    }
+     ^):
+  
+app/helpers/application_helper.rb:12: syntax error, unexpected ',', expecting =>
+app/helpers/application_helper.rb:18: syntax error, unexpected '}', expecting keyword_end
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/wikis_controller.rb:1:in `<top (required)>'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.6ms)
+Started GET "/wikis/52" for 127.0.0.1 at 2017-06-17 15:37:40 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 53ms (Views: 26.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/wikis/52" for 127.0.0.1 at 2017-06-17 15:38:03 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 48ms (Views: 25.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/wikis/52" for 127.0.0.1 at 2017-06-17 15:38:32 -0400
+  
+SyntaxError (/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:16: syntax error, unexpected ':', expecting =>
+      :autolink:           true,
+                ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:16: Can't assign to true
+    :autolink:           true,
+                              ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:17: Can't assign to true
+     superscript:        true,
+                              ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:18: Can't assign to true
+le_indented_code_blocks: true,
+                              ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:19: Can't assign to true
+      quote: true,
+                  ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:20: Can't assign to true
+     fenced_code_blocks: true,
+                              ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:21: Can't assign to true
+      strikethrough: true,
+                          ^):
+  
+app/helpers/application_helper.rb:16: syntax error, unexpected ':', expecting =>
+app/helpers/application_helper.rb:16: Can't assign to true
+app/helpers/application_helper.rb:17: Can't assign to true
+app/helpers/application_helper.rb:18: Can't assign to true
+app/helpers/application_helper.rb:19: Can't assign to true
+app/helpers/application_helper.rb:20: Can't assign to true
+app/helpers/application_helper.rb:21: Can't assign to true
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/wikis_controller.rb:1:in `<top (required)>'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.9ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.5ms)
+Started GET "/wikis/52" for 127.0.0.1 at 2017-06-17 15:38:56 -0400
+  
+SyntaxError (/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:16: syntax error, unexpected ':', expecting =>
+      :autolink: true,
+                ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:16: Can't assign to true
+      :autolink: true,
+                      ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:17: Can't assign to true
+      superscript: true,
+                        ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:18: Can't assign to true
+le_indented_code_blocks: true,
+                              ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:19: Can't assign to true
+      quote: true,
+                  ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:20: Can't assign to true
+     fenced_code_blocks: true,
+                              ^
+/Users/ryanmcburney/Documents/bloc/blocipedia/app/helpers/application_helper.rb:21: Can't assign to true
+      strikethrough: true,
+                          ^):
+  
+app/helpers/application_helper.rb:16: syntax error, unexpected ':', expecting =>
+app/helpers/application_helper.rb:16: Can't assign to true
+app/helpers/application_helper.rb:17: Can't assign to true
+app/helpers/application_helper.rb:18: Can't assign to true
+app/helpers/application_helper.rb:19: Can't assign to true
+app/helpers/application_helper.rb:20: Can't assign to true
+app/helpers/application_helper.rb:21: Can't assign to true
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/wikis_controller.rb:1:in `<top (required)>'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.8ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.2ms)
+Started GET "/wikis/52" for 127.0.0.1 at 2017-06-17 15:39:07 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 52], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 50ms (Views: 28.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:39:25 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (0.6ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 70ms (Views: 63.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:39:29 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 76ms (Views: 68.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:39:33 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (0.6ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (51.4ms)
+Completed 200 OK in 134ms (Views: 127.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/wikis/new" for 127.0.0.1 at 2017-06-17 15:39:45 -0400
+Processing by WikisController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/new.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (9.4ms)
+  Rendered wikis/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 69ms (Views: 62.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/wikis" for 127.0.0.1 at 2017-06-17 15:39:52 -0400
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nv209AniMFhpsDmuPPtMD2PTxKo+CzhEaR9n7t7cjybuuf8TcftsANrBM11RNSidr+GiF+ujkDCNMeLv6OY8Rg==", "wiki"=>{"title"=>"New wiki", "body"=>"New wiki "}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "New wiki"], ["body", "New wiki "], ["user_id", 1], ["created_at", "2017-06-17 19:39:52.839095"], ["updated_at", "2017-06-17 19:39:52.839095"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/53
+Completed 302 Found in 15ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/wikis/53" for 127.0.0.1 at 2017-06-17 15:39:52 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"53"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 53], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 39ms (Views: 34.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:39:58 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (0.4ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 37ms (Views: 30.4ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-17 15:41:02 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CgKFO1YIxaMqWol1TSf5HYpt4GbNZuuS5Aw7kixr2J56Rs7cLhGZ+5krg4Yg6Z2PRl+G2xjOQ+YAIr6TGlFr/g=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-17 15:41:03 -0400
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-17 15:41:03 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 38ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-06-17 15:41:09 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+mjGL+962HXszzdWp7K/7Z1LyoGQA7sFTkw8DhlPbw48RsoCEo16f9LWM62Ge4rlOTSVjwIvgtCkOWyJjc8rXA==", "user"=>{"email"=>"premium@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "premium@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-17 19:41:09.145197"], ["last_sign_in_at", "2017-06-17 19:41:09.145197"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2017-06-17 19:41:09.145953"], ["id", 8]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 148ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-17 15:41:09 -0400
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 28ms (Views: 24.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:41:11 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (4.9ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" ORDER BY created_at DESC[0m
+  Rendered wikis/index.html.erb within layouts/application (43.9ms)
+Completed 200 OK in 75ms (Views: 63.9ms | ActiveRecord: 5.1ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-17 15:41:34 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Htkx9xI+EZImSM0rB9oyDhy2618kjiosf4JdQJNKzbgBJ8qZngqCmzxDeJHVYtCD3u0X6LvgsR6H+pgtprXreg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-17 15:41:34 -0400
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-17 15:41:34 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 47ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-06-17 15:41:40 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VgNKacSL2BDAOrD8YD9f03PxsAlRpd3HMJN1AEWRPaCLWT7ew+exuqOr+cmQcKz88jNiVzG+a34gVYgOnzRz/Q==", "user"=>{"email"=>"standard@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "standard@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-17 19:41:40.579756"], ["sign_in_count", 2], ["updated_at", "2017-06-17 19:41:40.580698"], ["id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 142ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-17 15:41:40 -0400
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis/new" for 127.0.0.1 at 2017-06-17 15:41:43 -0400
+Processing by WikisController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/new.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (3.4ms)
+  Rendered wikis/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 63ms (Views: 55.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/wikis" for 127.0.0.1 at 2017-06-17 15:41:49 -0400
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rkr/auyMHhLxlDDi15NGQKr/sgoGsqi+/egz4RYi5EZRi7vmVaHaAPJpk+PJOMkmXZ2OMaai+4tYXujh6lWyhw==", "wiki"=>{"title"=>"New Wiki As well", "body"=>"jdkjfnksdjfsd"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "New Wiki As well"], ["body", "jdkjfnksdjfsd"], ["user_id", 1], ["created_at", "2017-06-17 19:41:49.340764"], ["updated_at", "2017-06-17 19:41:49.340764"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/54
+Completed 302 Found in 18ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/wikis/54" for 127.0.0.1 at 2017-06-17 15:41:49 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"54"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 54], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 39ms (Views: 32.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:41:51 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (0.7ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 65ms (Views: 57.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/wikis/new" for 127.0.0.1 at 2017-06-17 15:47:00 -0400
+Processing by WikisController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/new.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (2.0ms)
+  Rendered wikis/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 48ms (Views: 25.8ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/wikis" for 127.0.0.1 at 2017-06-17 15:47:06 -0400
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KTg8SOhFokkMVPsWhKce0yTqUb2MoN/PFS6L1Tg8EKHW+XjEUWhmWw+pWBeaDJG104hthiywjPqwmFDVxEtGYA==", "wiki"=>{"title"=>"New wiki", "body"=>"ddfsfsdfsdfsd"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `Wiki' for #<WikisController:0x007fbfbb955998>):
+  
+app/controllers/wikis_controller.rb:25:in `create'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.9ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.9ms)
+Started POST "/wikis" for 127.0.0.1 at 2017-06-17 15:48:29 -0400
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KTg8SOhFokkMVPsWhKce0yTqUb2MoN/PFS6L1Tg8EKHW+XjEUWhmWw+pWBeaDJG104hthiywjPqwmFDVxEtGYA==", "wiki"=>{"title"=>"New wiki", "body"=>"ddfsfsdfsdfsd"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `[]' for #<Class:0x007fbfb82597c8>):
+  
+app/controllers/wikis_controller.rb:25:in `create'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.5ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.0ms)
+Started POST "/wikis" for 127.0.0.1 at 2017-06-17 15:49:04 -0400
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KTg8SOhFokkMVPsWhKce0yTqUb2MoN/PFS6L1Tg8EKHW+XjEUWhmWw+pWBeaDJG104hthiywjPqwmFDVxEtGYA==", "wiki"=>{"title"=>"New wiki", "body"=>"ddfsfsdfsdfsd"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.4ms)
+
+
+  
+NameError (undefined local variable or method `wiki' for #<WikisController:0x007fbfbde21ce0>
+Did you mean?  @wiki):
+  
+app/controllers/wikis_controller.rb:25:in `create'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.7ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.4ms)
+Started GET "/" for 127.0.0.1 at 2017-06-17 15:49:11 -0400
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wikis/new" for 127.0.0.1 at 2017-06-17 15:49:12 -0400
+Processing by WikisController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/new.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (7.2ms)
+  Rendered wikis/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 78ms (Views: 70.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/wikis" for 127.0.0.1 at 2017-06-17 15:49:18 -0400
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rq4vcA2C9rAS+NIaQGOubZaYJXGkp8dHgRFBamuRXstRb2v8tK8yohEFcRteyCELYfoZSgS3lHIkp5pql+YICg==", "wiki"=>{"title"=>"A New Wiki! ", "body"=>"jlnkjnkjsdnfksdnf"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.2ms)
+
+
+  
+NameError (undefined local variable or method `wiki' for #<WikisController:0x007fbfbb88e190>
+Did you mean?  @wiki):
+  
+app/controllers/wikis_controller.rb:25:in `create'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.9ms)
+Started POST "/wikis" for 127.0.0.1 at 2017-06-17 15:51:32 -0400
+Processing by WikisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rq4vcA2C9rAS+NIaQGOubZaYJXGkp8dHgRFBamuRXstRb2v8tK8yohEFcRteyCELYfoZSgS3lHIkp5pql+YICg==", "wiki"=>{"title"=>"A New Wiki! ", "body"=>"jlnkjnkjsdnfksdnf"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "A New Wiki! "], ["body", "jlnkjnkjsdnfksdnf"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-17 19:51:33.096726"], ["updated_at", "2017-06-17 19:51:33.096726"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/55
+Completed 302 Found in 46ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/wikis/55" for 127.0.0.1 at 2017-06-17 15:51:33 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"55"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 55], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 39ms (Views: 34.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:51:37 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (1.1ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (38.7ms)
+Completed 200 OK in 85ms (Views: 76.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:51:56 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 48ms (Views: 25.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/wikis/50/edit" for 127.0.0.1 at 2017-06-17 15:51:59 -0400
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.5ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/edit.html.erb within layouts/application
+  Rendered wikis/_form.html.erb (4.7ms)
+  Rendered wikis/edit.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 80ms (Views: 70.0ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/wikis/50" for 127.0.0.1 at 2017-06-17 15:52:01 -0400
+Processing by WikisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yA2AAHqxnwuqf/WqG2BcuKELu/z2pEgJ2NyRCn7juEg3zMSMw5xbGamCVqsFy9PeVmmHx1a0Gzx9akoKgpTuiQ==", "wiki"=>{"title"=>"Markdown Example", "body"=>"Iaknduv nym adis phyr mdeswt dfg. \r\n\r\n<q>This is a quote.</q>\r\n\r\n~~strikethrough~~\r\n\r\n~~~~\r\nNfdmuw ljhmkbta agztmvdj fwxdqnhv gckovmfn bqxly yhdl wepzli. Pbstdvgo hkmi kovecgfs ehncq bfelm zpnof. Eanifv dbpy bajvsmkr wcsdxgea hwy. Reg mbq tvygfcu sfatx. Blkayjg dalftc pceudtg wrlkqvc zjeros.\r\n~~~"}, "commit"=>"Save", "id"=>"50"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/wikis/50
+Completed 302 Found in 13ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:52:01 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 35ms (Views: 29.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:54:02 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 52ms (Views: 28.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:56:28 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (0.4ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 55ms (Views: 36.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:56:29 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  Rendered wikis/show.html.erb within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `text' for #<String:0x007fbfbde11b88>):
+    2: 
+    3:  <div class="row">
+    4:    <div class="col-md-8">
+    5:      <p><%= markdown(@wiki.body.text) %></p>
+    6:      <small>
+    7:        submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= @wiki.user.email %>
+    8:      </small>
+  
+app/views/wikis/show.html.erb:5:in `_app_views_wikis_show_html_erb___3888693583783373621_70230694699760'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.3ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.8ms)
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:56:47 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  Rendered wikis/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `body' for nil:NilClass):
+    2: 
+    3:  <div class="row">
+    4:    <div class="col-md-8">
+    5:      <p><%= markdown(@self.body) %></p>
+    6:      <small>
+    7:        submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= @wiki.user.email %>
+    8:      </small>
+  
+app/views/wikis/show.html.erb:5:in `_app_views_wikis_show_html_erb___3888693583783373621_70230702293220'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (52.9ms)
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:56:55 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  Rendered wikis/show.html.erb within layouts/application (14.4ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `body' for #<#<Class:0x007fbfba781d20>:0x007fbfbd44adc0>):
+    2: 
+    3:  <div class="row">
+    4:    <div class="col-md-8">
+    5:      <p><%= markdown(self.body) %></p>
+    6:      <small>
+    7:        submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= @wiki.user.email %>
+    8:      </small>
+  
+app/views/wikis/show.html.erb:5:in `_app_views_wikis_show_html_erb___3888693583783373621_70230745439180'
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.6ms)
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:57:16 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.2ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 38ms (Views: 33.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:57:33 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 56ms (Views: 28.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:58:38 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.1ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 46ms (Views: 25.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-17 15:59:13 -0400
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-17 15:59:13 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (3.7ms)
+  Rendered /Users/ryanmcburney/.rvm/gems/ruby-2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 82ms (Views: 63.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.self-75496debdbe43ff3ff754d91ed38f8f16ac00f2af197bf2283b5876bfb3f5f21.css?body=1" for 127.0.0.1 at 2017-06-17 15:59:13 -0400
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-06-17 15:59:13 -0400
+Started GET "/assets/downgrade.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-06-17 15:59:13 -0400
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-06-17 15:59:13 -0400
+Started GET "/assets/turbolinks.self-1d1fddf91adc38ac2045c51f0a3e05ca97d07d24d15a4dcbf705009106489e69.js?body=1" for 127.0.0.1 at 2017-06-17 15:59:13 -0400
+Started GET "/assets/bootstrap.self-b38817c3e3a3049abb1fc08dd6ae448b23330f8453226efdb074710209474f75.js?body=1" for 127.0.0.1 at 2017-06-17 15:59:13 -0400
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-06-17 15:59:13 -0400
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-06-17 15:59:13 -0400
+Started GET "/assets/wikis.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-06-17 15:59:13 -0400
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2017-06-17 15:59:13 -0400
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-06-17 15:59:26 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y9cReouMC7FtCYkbeGlqIeA1PQDzXug2JHQ09HI2WmvcG2/oxuB2E2axvB1PTQFs+H1OE5/gDjKSLEOLErYd5g==", "user"=>{"email"=>"standard@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "standard@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-17 19:59:26.508292"], ["last_sign_in_at", "2017-06-17 19:41:40.579756"], ["sign_in_count", 3], ["updated_at", "2017-06-17 19:59:26.510345"], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 148ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-17 15:59:26 -0400
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 46ms (Views: 43.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2017-06-17 15:59:29 -0400
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering wikis/index.html.erb within layouts/application
+  [1m[36mWiki Load (0.4ms)[0m  [1m[34mSELECT "wikis".* FROM "wikis" WHERE "wikis"."private" = ? ORDER BY created_at DESC[0m  [["private", "f"]]
+  Rendered wikis/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 59ms (Views: 43.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/wikis/50" for 127.0.0.1 at 2017-06-17 15:59:30 -0400
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWiki Load (0.6ms)[0m  [1m[34mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? ORDER BY created_at DESC LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering wikis/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered wikis/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 49ms (Views: 36.1ms | ActiveRecord: 1.8ms)
+
+

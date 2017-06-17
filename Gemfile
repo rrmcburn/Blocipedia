@@ -50,3 +50,5 @@ group :production do
  gem 'pundit'
  #Stripe payment gateway
  gem 'stripe'
+ #Markdown for wiki entries
+ gem 'redcarpet'

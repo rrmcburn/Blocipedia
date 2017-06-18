@@ -1,16 +1,14 @@
 class WikisController < ApplicationController
 
-  def index
+  include ApplicationHelper
 
-    if current_user.premium? || current_user.admin?
-      @wikis = Wiki.all
-    else
-      @wikis = Wiki.where(private: false)
-    end
+  def index
+    @wikis = policy_scope(Wiki)
   end
 
   def show
     @wiki = Wiki.find(params[:id])
+    @users = Collaborator.all
     # authorize @wiki
   end
 
@@ -71,7 +69,7 @@ class WikisController < ApplicationController
   private
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body, :private)
+    params.require(:wiki).permit(:title, :body, :private, :user_id)
   end
 
 end

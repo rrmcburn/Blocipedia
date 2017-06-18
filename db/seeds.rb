@@ -15,11 +15,21 @@ users = User.all
     user:   users.sample,
     title:  RandomData.random_sentence,
     body:   RandomData.random_paragraph,
-    private: false 
+    private: false
   )
 end
 
 wikis = Wiki.all
+
+# Create Collabs
+20.times do
+  Collaborator.create!(
+    user_id:  users.sample,
+    wiki_id:  wikis.sample
+  )
+end
+
+
 
 #Admin user
 user = User.second

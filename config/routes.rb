@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   #
   # get 'charges/initialize'
 
-  resources :wikis
+  resources :wikis do
+      resources :collaborators, only: [:index, :destroy, :create]
+  end
 
   devise_for :users
 
